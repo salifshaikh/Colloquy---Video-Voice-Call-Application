@@ -20,7 +20,10 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "watch:client": "webpack serve --config client/webpack-dev.config.js",
+    "watch:server": "nodemon server/index.js",
+    "lint": "eslint --max-warnings 0 --ignore-path .gitignore ."
   },
   "eslintConfig": {
     "extends": [
