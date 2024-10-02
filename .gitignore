@@ -24,3 +24,4 @@ yarn-error.log*
 
 client/dist/
 client/index.html
+node_modules
