@@ -48,7 +48,7 @@ module.exports = {
   plugins: [
     new HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
-      title: 'React VideoCall - Salif Shaikh',
+      title: 'Colloquy : Connect',
       filename: 'index.html',
       template: 'src/html/index.html'
     })
