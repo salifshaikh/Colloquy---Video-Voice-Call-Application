@@ -1,7 +1,6 @@
 const { HotModuleReplacementPlugin } = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const socketConfig = require('../config');
-const adapter = require('webrtc-adapter');
 
 module.exports = {
   mode: 'development',

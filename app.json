@@ -1,6 +1,7 @@
 {
-  "name": "React Video Call",
+  "name": "Colloquy",
   "description": "React Video Call App powered by WebRTC, React and Socket.io",
   "repository": "https://github.com/salifshaikh/Voice-Video-Calling-Website",
+  "logo": "",
   "keywords": ["react", "express", "video call"]
 }

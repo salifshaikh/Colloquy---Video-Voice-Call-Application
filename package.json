@@ -1,51 +1,43 @@
 {
-  "name": "vc",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@testing-library/jest-dom": "^5.17.0",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0",
-    "express": "^4.21.0",
-    "html-webpack-plugin": "^5.6.0",
-    "lodash": "^4.17.21",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "react-scripts": "5.0.1",
-    "simple-peer": "^9.11.1",
-    "socket.io": "^4.8.0",
-    "socket.io-client": "^4.8.0",
-    "terser-webpack-plugin": "^5.3.10",
-    "uuid": "^10.0.0",
-    "web-vitals": "^2.1.4",
-    "webrtc-adapter": "9.0.1"
-  },
+  "name": "Colloquy",
+  "version": "1.7.0",
+  "description": "React VideoCall App",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
+    "build": "cd client && webpack --config webpack-prod.config.js",
+    "start": "node server/index.js",
     "watch:client": "webpack serve --config client/webpack-dev.config.js",
     "watch:server": "nodemon server/index.js",
     "lint": "eslint --max-warnings 0 --ignore-path .gitignore ."
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "dependencies": {
+    "@babel/core": "7.25.2",
+    "@babel/preset-env": "7.25.4",
+    "@babel/preset-react": "7.24.7",
+    "@fortawesome/fontawesome-svg-core": "6.6.0",
+    "@fortawesome/free-solid-svg-icons": "6.6.0",
+    "@fortawesome/react-fontawesome": "0.2.2",
+    "babel-loader": "9.2.1",
+    "bootstrap": "5.3.3",
+    "classnames": "2.5.1",
+    "css-loader": "7.1.2",
+    "expose-loader": "5.0.0",
+    "express": "4.21.0",
+    "file-loader": "6.2.0",
+    "html-webpack-plugin": "5.6.0",
+    "lodash": "4.17.21",
+    "mini-css-extract-plugin": "2.9.1",
+    "prop-types": "15.8.1",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "sass-embedded": "1.76.0",
+    "sass-loader": "16.0.2",
+    "socket.io": "4.8.0",
+    "socket.io-client": "4.8.0",
+    "style-loader": "4.0.0",
+    "terser-webpack-plugin": "5.3.10",
+    "webpack": "5.94.0",
+    "webpack-cli": "5.1.4",
+    "webrtc-adapter": "9.0.1"
   },
   "devDependencies": {
     "eslint": "8.56.0",
@@ -55,6 +47,15 @@
     "eslint-plugin-jsx-a11y": "6.10.0",
     "eslint-plugin-react": "7.36.1",
     "nodemon": "3.1.7",
-    "webpack-cli": "5.1.4"
-  }
+    "webpack-dev-server": "5.1.0"
+  },
+  "engines": {
+    "node": "20"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nguymin4/react-videocall.git"
+  },
+  "author": "Minh Son Nguyen",
+  "license": "MIT"
 }
