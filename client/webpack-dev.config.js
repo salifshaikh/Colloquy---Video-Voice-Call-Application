@@ -1,6 +1,7 @@
 const { HotModuleReplacementPlugin } = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const socketConfig = require('../config');
+const adapter = require('webrtc-adapter');
 
 module.exports = {
   mode: 'development',
@@ -48,7 +49,7 @@ module.exports = {
   plugins: [
     new HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
-      title: 'React VideoCall - Minh Son Nguyen',
+      title: 'React VideoCall - Salif Shaikh',
       filename: 'index.html',
       template: 'src/html/index.html'
     })
