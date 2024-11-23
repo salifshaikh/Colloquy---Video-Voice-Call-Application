@@ -34,6 +34,7 @@ function MainWindow({ startCall }) {
   return (
     <div className="container main-window">
       <div>
+        <h1>Welcome to Colloquy</h1>
         <h3>
           Hi, your ID is
           <input
