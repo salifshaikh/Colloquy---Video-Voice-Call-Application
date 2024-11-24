@@ -4,6 +4,7 @@ import { socket, PeerConnection } from './communication';
 import MainWindow from './components/MainWindow';
 import CallWindow from './components/CallWindow';
 import CallModal from './components/CallModal';
+import Footer from './components/Footer'; // Add this import
 
 class App extends Component {
   constructor() {
@@ -69,12 +70,10 @@ class App extends Component {
     });
   }
 
-  // In App.js, update the main div wrapper
   render() {
     const { callFrom, callModal, callWindow, localSrc, peerSrc } = this.state;
     return (
       <div className="min-h-screen pb-20">
-        {/* Add padding-bottom to prevent footer overlap */}
         <MainWindow startCall={this.startCallHandler} />
         {!_.isEmpty(this.config) && (
           <CallWindow
@@ -92,6 +91,7 @@ class App extends Component {
           rejectCall={this.rejectCallHandler}
           callFrom={callFrom}
         />
+        <Footer />
       </div>
     );
   }
