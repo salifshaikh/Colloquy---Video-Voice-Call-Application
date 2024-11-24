@@ -22,10 +22,6 @@ function MainWindow({ startCall }) {
   const clientID = useClientID();
   const [friendID, setFriendID] = useState(null);
 
-  /**
-   * Start the call with or without video
-   * @param {Boolean} video
-   */
   const callWithVideo = (video) => {
     const config = { audio: true, video };
     return () => friendID && startCall(true, friendID, config);
@@ -36,7 +32,7 @@ function MainWindow({ startCall }) {
       <div>
         <h1>Welcome to Colloquy</h1>
         <h3>
-          Hi, your ID is
+          Share this ID with your friend:
           <input
             type="text"
             className="txt-clientId"
@@ -44,6 +40,7 @@ function MainWindow({ startCall }) {
             readOnly
           />
         </h3>
+        <h2>OR</h2>
         <h4>Get started by calling a friend below</h4>
       </div>
       <div>
@@ -62,7 +59,6 @@ function MainWindow({ startCall }) {
     </div>
   );
 }
-
 MainWindow.propTypes = {
   startCall: PropTypes.func.isRequired
 };

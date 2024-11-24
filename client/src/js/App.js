@@ -69,10 +69,12 @@ class App extends Component {
     });
   }
 
+  // In App.js, update the main div wrapper
   render() {
     const { callFrom, callModal, callWindow, localSrc, peerSrc } = this.state;
     return (
-      <div>
+      <div className="min-h-screen pb-20">
+        {/* Add padding-bottom to prevent footer overlap */}
         <MainWindow startCall={this.startCallHandler} />
         {!_.isEmpty(this.config) && (
           <CallWindow
@@ -83,7 +85,7 @@ class App extends Component {
             mediaDevice={this.pc.mediaDevice}
             endCall={this.endCallHandler}
           />
-        ) }
+        )}
         <CallModal
           status={callModal}
           startCall={this.startCallHandler}
