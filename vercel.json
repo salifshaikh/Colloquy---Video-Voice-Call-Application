@@ -1,0 +1,18 @@
+{
+    "builds": [
+      {
+        "src": "client/webpack-prod.config.js",
+        "use": "@vercel/static-build",
+        "config": {
+          "distDir": "client/dist"
+        }
+      }
+    ],
+    "routes": [
+      {
+        "src": "/(.*)",
+        "dest": "/index.html"
+      }
+    ]
+  }
+  
