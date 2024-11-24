@@ -10,82 +10,96 @@
 	@include bg-gradient(top, #074055 0%, #030D10 100%);
 	
 	&.active {
-		opacity: 1;
+	  opacity: 1;
+	  z-index: auto;
+	  
+	  .video-control {
 		z-index: auto;
-		
-		.video-control {
-			z-index: auto;
-			@include animation(in-fadeout 3s ease);
-		}
+		@include animation(in-fadeout 3s ease);
+	  }
 	}
 	
 	.video-control {
-		position: absolute;
-		bottom: 20px;
-		height: 72px;
-		width: 100%;
-		text-align: center;
-		opacity: 0;
-		z-index: -1;
-		@include transition(opacity 0.5s);
-		
-		
-		&:hover {
-			opacity: 1;
-		}
+	  position: absolute;
+	  bottom: 50px; // Increased from 20px to avoid footer overlap
+	  height: 72px;
+	  width: 100%;
+	  text-align: center;
+	  opacity: 0;
+	  z-index: -1;
+	  @include transition(opacity 0.5s);
+	  
+	  &:hover {
+		opacity: 1;
+	  }
+  
+	  .control-container {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 16px;
+		background-color: rgba(0, 0, 0, 0.5);
+		padding: 10px 20px;
+		border-radius: 50px;
+		margin: 0 auto;
+		width: fit-content;
+	  }
 	}
 	
 	video {
-		position: absolute;
+	  position: absolute;
 	}
 	
 	#localVideo {
-		bottom: 0;
-		right: 0;
-		width: 20%;
-		height: 20%;
+	  bottom: 80px; // Increased from 0 to avoid footer overlap
+	  right: 10px;
+	  width: 25%;
+	  height: 25%;
+	  border-radius: 8px;
+	  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 	}
 	
 	#peerVideo {
-		width: 100%;
-		height: 100%;
+	  width: 100%;
+	  height: 100%;
 	}
-}
-
-@include keyframes(in-fadeout) {
+  }
+  
+  @include keyframes(in-fadeout) {
 	0% {opacity: 1}
 	75% {opacity: 1}
 	100% {opacity: 0}
-}
-
-.video-control, .call-modal {
+  }
+  
+  .video-control, .call-modal {
 	.btn-action {
-		$height: 50px;
-		height: $height;
-		width: $height;
-		line-height: $height;
-		margin: 0px 8px;
-		font-size: 1.4em;
-		text-align: center;
-		border-radius: 50%;
-		cursor: pointer;
-		transition-duration: 0.25s;
+	  $height: 50px;
+	  height: $height;
+	  width: $height;
+	  line-height: 50px;
+	  margin: 0px 8px;
+	  font-size: 1.4em;
+	  text-align: center;
+	  border-radius: 50%;
+	  cursor: pointer;
+	  transition-duration: 0.25s;
+	  
+	  &:hover {
+		opacity: 0.8;  
+		transform: scale(1.05);
+	  }
+	  
+	  &.hangup {
+		background-color: $red;
+		@include transform(rotate(135deg));
+	  }
+	  
+	  &:not(.hangup) {
+		background-color: $blue;
 		
-		&:hover {
-			opacity: 0.8;	
+		&.disabled {
+		  background-color: $red;
 		}
-		
-		&.hangup {
-			background-color: $red;
-			@include transform(rotate(135deg));
-		}
-		
-		&:not(.hangup) {
-			background-color: $blue;
-			
-			&.disabled {
-				background-color: $red;
-			}
-		}
+	  }
 	}
-}
+  }

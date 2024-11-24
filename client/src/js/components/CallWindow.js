@@ -1,8 +1,7 @@
-/* eslint-disable jsx-a11y/media-has-caption */
 import React, { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import { faPhone, faVideo } from '@fortawesome/free-solid-svg-icons';
+import { faPhone, faVideo, faMicrophone } from '@fortawesome/free-solid-svg-icons';
 import ActionButton from './ActionButton';
 
 function CallWindow({ peerSrc, localSrc, config, mediaDevice, status, endCall }) {
@@ -23,10 +22,6 @@ function CallWindow({ peerSrc, localSrc, config, mediaDevice, status, endCall })
     }
   });
 
-  /**
-   * Turn on/off a media device
-   * @param {'Audio' | 'Video'} deviceType - Type of the device eg: Video, Audio
-   */
   const toggleMediaDevice = (deviceType) => {
     if (deviceType === 'Video') {
       setVideo(!video);
@@ -42,23 +37,25 @@ function CallWindow({ peerSrc, localSrc, config, mediaDevice, status, endCall })
       <video id="peerVideo" ref={peerVideo} autoPlay />
       <video id="localVideo" ref={localVideo} autoPlay muted />
       <div className="video-control">
-        <ActionButton
-          key="btnVideo"
-          icon={faVideo}
-          disabled={!video}
-          onClick={() => toggleMediaDevice('Video')}
-        />
-        <ActionButton
-          key="btnAudio"
-          icon={faPhone}
-          disabled={!audio}
-          onClick={() => toggleMediaDevice('Audio')}
-        />
-        <ActionButton
-          className="hangup"
-          icon={faPhone}
-          onClick={() => endCall(true)}
-        />
+        <div className="control-container">
+          <ActionButton
+            key="btnVideo"
+            icon={faVideo}
+            disabled={!video}
+            onClick={() => toggleMediaDevice('Video')}
+          />
+          <ActionButton
+            key="btnAudio"
+            icon={faMicrophone}
+            disabled={!audio}
+            onClick={() => toggleMediaDevice('Audio')}
+          />
+          <ActionButton
+            className="hangup"
+            icon={faPhone}
+            onClick={() => endCall(true)}
+          />
+        </div>
       </div>
     </div>
   );
