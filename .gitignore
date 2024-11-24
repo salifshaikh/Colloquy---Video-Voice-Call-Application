@@ -1,6 +1,2 @@
-client/dist/
-client/index.html
+client/dist
 node_modules
-.env
-.env.local
-.vercel
