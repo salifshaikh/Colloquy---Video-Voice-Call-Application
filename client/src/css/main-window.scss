@@ -1,49 +1,112 @@
-.main-window {
-	padding-top: 80px;
-	font-size: 1.75em;
+// Artistic Main Window Styles
+.artistic-main-window {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  position: relative; // Important for layering
+  z-index: 10; // Ensure content is above background
 
-	@media screen and (max-width: 767px) {
-		padding-top: 40px;
+  .window-container {
+    background: rgba(255, 255, 255, 0.2); // Increased opacity for visibility
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    padding: 40px;
+    width: 100%;
+    max-width: 500px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    position: relative;
+    z-index: 20; // Ensure content is above background
+  }
 
-		.pull-left, .pull-right {
-			width: 100%;
-			text-align: center;
-		}
-
-		.pull-right {
-			margin-top: 20px;
-		}
+  
+	.header {
+	  text-align: center;
+	  margin-bottom: 30px;
+  
+	  h1 {
+		font-family: 'Poppins', sans-serif;
+		color: #ffffff;
+		font-size: 3rem;
+		margin-bottom: 10px;
+		text-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+	  }
+  
+	  .subtitle {
+		color: rgba(255, 255, 255, 0.7);
+		font-size: 1rem;
+	  }
 	}
-
-	.btn-action {
-		$height: 60px;
-		height: $height;
-		width: $height;
-		margin: 20px 30px 0px 0px;
-		text-align: center;
-		border-radius: 50%;
-		border: solid 2px $main-color;
-		cursor: pointer;
-		transition-duration: 0.25s;
-		background-color: transparent;
-
-		&:hover {
-			background-color: rgba($main-color, 0.2);
-		}
+  
+	.id-section, .call-section {
+	  margin-bottom: 30px;
 	}
-
-	.txt-clientId {
-		height: 40px;
-		margin: 4px auto 0px 10px;
-		color: $main-color;
-		font-size: 0.9em;
-		background-color: transparent;
-		border: none;
-		border-bottom: solid 1px $main-color;
-		@include input-placeholder(rgba($main-color, 0.8));
+  
+	label {
+	  color: rgba(255, 255, 255, 0.7);
+	  display: block;
+	  margin-bottom: 10px;
+	  font-weight: 500;
 	}
-
-	
-
-}
-
+  
+	.id-input-wrapper, .friend-input-wrapper {
+	  display: flex;
+	  align-items: center;
+	  background: rgba(255, 255, 255, 0.1);
+	  border-radius: 10px;
+	  padding: 10px;
+	}
+  
+	.client-id-display, .friend-id-input {
+	  flex-grow: 1;
+	  background: transparent;
+	  border: none;
+	  color: white;
+	  font-size: 1rem;
+	  &::placeholder {
+		color: rgba(255, 255, 255, 0.5);
+	  }
+	}
+  
+	.copy-btn, .input-icon {
+	  color: rgba(255, 255, 255, 0.7);
+	  margin-left: 10px;
+	}
+  
+	.copy-tooltip {
+	  color: #4caf50;
+	  font-size: 0.8rem;
+	  margin-top: 5px;
+	}
+  
+	.call-actions {
+	  display: flex;
+	  justify-content: space-between;
+	  gap: 20px;
+	}
+  
+	.call-btn {
+		margin-top: 10px;
+	  display: flex;
+	  align-items: center;
+	  justify-content: center;
+	  gap: 10px;
+	  flex-grow: 1;
+	  padding: 12px 20px;
+	  border-radius: 10px;
+	  color: white;
+	  font-weight: 600;
+	  border: none;
+	  transition: all 0.3s ease;
+  
+	  &.video-call {
+		background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+	  }
+  
+	  &.voice-call {
+		background: linear-gradient(135deg, #ff6a88 0%, #ff6a88 100%);
+	  }
+	}
+  }

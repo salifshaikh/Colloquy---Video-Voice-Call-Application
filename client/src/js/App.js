@@ -4,7 +4,7 @@ import { socket, PeerConnection } from './communication';
 import MainWindow from './components/MainWindow';
 import CallWindow from './components/CallWindow';
 import CallModal from './components/CallModal';
-import Footer from './components/Footer'; // Add this import
+import Footer from './components/Footer';
 
 class App extends Component {
   constructor() {
@@ -14,7 +14,8 @@ class App extends Component {
       callModal: '',
       callFrom: '',
       localSrc: null,
-      peerSrc: null
+      peerSrc: null,
+      showMainWindow: true // Add a state to control MainWindow visibility
     };
     this.pc = {};
     this.config = null;
@@ -26,7 +27,11 @@ class App extends Component {
   componentDidMount() {
     socket
       .on('request', ({ from: callFrom }) => {
-        this.setState({ callModal: 'active', callFrom });
+        this.setState({
+          callModal: 'active',
+          callFrom,
+          showMainWindow: false // Hide main window when call request comes
+        });
       })
       .on('call', (data) => {
         if (data.sdp) {
@@ -42,7 +47,11 @@ class App extends Component {
     this.config = config;
     this.pc = new PeerConnection(friendID)
       .on('localStream', (src) => {
-        const newState = { callWindow: 'active', localSrc: src };
+        const newState = {
+          callWindow: 'active',
+          localSrc: src,
+          showMainWindow: false // Hide main window when call starts
+        };
         if (!isCaller) newState.callModal = '';
         this.setState(newState);
       })
@@ -53,7 +62,10 @@ class App extends Component {
   rejectCall() {
     const { callFrom } = this.state;
     socket.emit('end', { to: callFrom });
-    this.setState({ callModal: '' });
+    this.setState({
+      callModal: '',
+      showMainWindow: true // Show main window if call is rejected
+    });
   }
 
   endCall(isStarter) {
@@ -66,15 +78,26 @@ class App extends Component {
       callWindow: '',
       callModal: '',
       localSrc: null,
-      peerSrc: null
+      peerSrc: null,
+      showMainWindow: true // Always show main window when call ends
     });
   }
 
   render() {
-    const { callFrom, callModal, callWindow, localSrc, peerSrc } = this.state;
+    const {
+      callFrom,
+      callModal,
+      callWindow,
+      localSrc,
+      peerSrc,
+      showMainWindow
+    } = this.state;
+
     return (
       <div className="min-h-screen pb-20">
-        <MainWindow startCall={this.startCallHandler} />
+        {showMainWindow && (
+          <MainWindow startCall={this.startCallHandler} />
+        )}
         {!_.isEmpty(this.config) && (
           <CallWindow
             status={callWindow}
