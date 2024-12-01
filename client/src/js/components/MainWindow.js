@@ -10,7 +10,7 @@ function useClientID() {
   useEffect(() => {
     socket
       .on('init', ({ id }) => {
-        document.title = `Colloquy - Video Chat Application`;
+        document.title = 'Colloquy - Video Chat Application';
         setClientID(id);
       });
   }, []);

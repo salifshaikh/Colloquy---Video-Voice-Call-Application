@@ -8,20 +8,19 @@ function Footer() {
       <div className="container">
         <div className="flex">
           <div className="flex">
-          <a 
-              href="https://my-portfolio-gamma-nine-22.vercel.app/" 
-              target="_blank" 
+            <a
+              href="https://my-portfolio-gamma-nine-22.vercel.app/"
+              target="_blank"
               rel="noopener noreferrer"
               className="flex"
             >
-                <img 
+              <img
                 src={logo}
-                alt="Logo" 
-                />
-                <span>Dev - Salif Shaikh</span>
+                alt="Logo"
+              />
+              <span>Dev - Salif Shaikh</span>
             </a>
-            </div>
-          
+          </div>
           <div className="flex">
             <a
               href="https://github.com/salifshaikh"
